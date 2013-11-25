@@ -683,7 +683,7 @@ static int cj_config_add_url (oconfig_item_t *ci) /* {{{ */
       status = cf_util_get_string (child, &db->user);
     else if (db->url && strcasecmp ("Password", child->key) == 0)
       status = cf_util_get_string (child, &db->pass);
-    else if (strcasecmp ("Digest", child->key) == 0)
+    else if (db->url && strcasecmp ("Digest", child->key) == 0)
       status = cf_util_get_boolean (child, &db->digest);
     else if (db->url && strcasecmp ("VerifyPeer", child->key) == 0)
       status = cf_util_get_boolean (child, &db->verify_peer);
